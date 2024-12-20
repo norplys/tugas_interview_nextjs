@@ -1,21 +1,22 @@
-'use client'
+"use client";
 import { useMovies } from "@/lib/hooks/query/use-movies-list";
+import MovieCard from "./movie-card";
 
 export default function ListMoviesCard(): JSX.Element {
-  const { data, error, isPending, refetch } = useMovies('all');
+  const { data, error, isPending } = useMovies("?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc");
 
-  console.log(data);
+  console.log(data?.results);
 
   return (
-    <div className="bg-white w-full min-h-screen">
+    <div className="grid grid-cols-5 gap-4">
       {isPending && <p>Loading...</p>}
       {error && <p>{error.message}</p>}
       {data && (
-        <ul >
-          {data.Search.map((movie) => (
-            <li key={movie.imdbID}>{movie.Title}</li>
+        <>
+          {data.results.map((movie) => (
+            <MovieCard key={movie.id} {...movie} />
           ))}
-        </ul>
+        </>
       )}
     </div>
   );

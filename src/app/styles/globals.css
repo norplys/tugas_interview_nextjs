@@ -5,6 +5,8 @@
 @layer base {
   :root {
     --background: 0 0% 0%;
+    --foreground: 0 100% 50%;
+    --border: 0 0% 89.8%;
   }
 }
 
@@ -13,7 +15,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background-image: url('/bg_img.jpg');
+    @apply text-foreground;
   }
 }
 

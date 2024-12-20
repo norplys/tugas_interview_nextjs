@@ -2,15 +2,17 @@ import { z } from 'zod';
 
 const envSchema = z.object({
   NEXT_PUBLIC_URL: z.string().trim().min(1),
-  NEXT_PUBLIC_BACKEND_URL: z.string().trim().min(1)
+  NEXT_PUBLIC_BACKEND_URL: z.string().trim().min(1),
+  NEXT_PUBLIC_API_KEY: z.string().trim().min(1)
 });
 
 const parsedSchema = envSchema.parse({
   NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
-  NEXT_PUBLIC_BACKEND_URL: process.env.NEXT_PUBLIC_BACKEND_URL
+  NEXT_PUBLIC_BACKEND_URL: process.env.NEXT_PUBLIC_BACKEND_URL,
+  NEXT_PUBLIC_API_KEY: process.env.NEXT_PUBLIC_API_KEY
 });
 
 export const NEXT_PUBLIC_URL_WITHOUT_PROTOCOL =
   parsedSchema.NEXT_PUBLIC_URL.replace(/(^\w+:|^)\/\//, '');
 
-export const { NEXT_PUBLIC_URL, NEXT_PUBLIC_BACKEND_URL } = parsedSchema;
+export const { NEXT_PUBLIC_URL, NEXT_PUBLIC_BACKEND_URL, NEXT_PUBLIC_API_KEY } = parsedSchema;

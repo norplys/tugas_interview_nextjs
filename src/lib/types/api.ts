@@ -1,5 +1,6 @@
 export type APIResponse<T = unknown> = {
-  Search: T;
-  Response: string;
-  totalResults: string;
+  results: T;
+  page: number;
+  total_pages: number;
+  total_results: number;
 };
