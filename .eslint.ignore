@@ -1,0 +1,8 @@
+# next config
+next.config.js
+
+# tailwind config
+postcss.config.js
+
+# commitlint config
+commitlint.config.js

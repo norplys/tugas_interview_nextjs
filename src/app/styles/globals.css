@@ -80,3 +80,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .layout {
+    @apply mx-auto max-w-6xl px-4;
+  }
+}
