@@ -14,15 +14,15 @@ export class ApplicationError extends Error {
  * A fetcher function that adds the owner bearer token to the request.
  */
 export async function fetcher<T>(
-  input: string,
+  input?: string | undefined,
   init?: RequestInit
 ): Promise<APIResponse<T>> {
   try {
-    const res = await fetch(`${NEXT_PUBLIC_BACKEND_URL}${input}`, init);
+    const res = await fetch(`${NEXT_PUBLIC_BACKEND_URL}${input || ''}`, init);
 
     const data = (await res.json()) as APIResponse<T>;
 
-    if (!res.ok) throw new ApplicationError(data.message, res.status);
+    if (!res.ok) throw new ApplicationError(data.Response, res.status);
 
     return data;
   } catch (err) {
