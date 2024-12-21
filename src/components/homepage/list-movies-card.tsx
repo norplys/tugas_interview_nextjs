@@ -30,7 +30,7 @@ export default function ListMoviesCard(): JSX.Element {
 
   return (
     <>
-      <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5">
+      <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-5 w-full">
         {data && (
           <>
             {data.results.map((movie) => (

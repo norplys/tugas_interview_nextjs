@@ -10,7 +10,7 @@ const nextConfig = {
             },
             {
                 protocol: 'https',
-                hostname: 'image.tmdb.org/t/p/original'
+                hostname: 'image.tmdb.org'
             }
         ],
     }
