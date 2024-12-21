@@ -7,7 +7,7 @@ type MovieResponse = APIResponse<Movie[]>;
 
 export function useMovies(query: string): UseQueryResult<MovieResponse, ApplicationError> {
   const result = useQuery<MovieResponse, ApplicationError>({
-    queryKey: ["movies"],
+    queryKey: ["movies", query],
     queryFn: (): Promise<MovieResponse> => fetcher(`${query}`),
   });
 

@@ -5,7 +5,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { FaStar } from "react-icons/fa";
-
 import type { Movie } from "@/lib/types/schema";
 
 export default function MovieCard(movie: Movie): JSX.Element {
